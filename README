@@ -20,7 +20,7 @@ Semantic Tasks was written by Steren Giannini for CreativeCommons.
 
 (3) Add the following lines to the file /extensions/SemanticMediaWiki/includes/SMW_Hooks.php at line 37 :
         global $setIP, $setRevisionInfo;
-        if ( $setRevisionInfo && file_exists($setIP . "/SET_AddEditTime.php") ) {include($setIP . "/SET_AddEditTime.php");}
+        if ( $setRevisionInfo ) ) {include($setIP . "/SET_AddEditTime.php");}
 
 (4) Declare the Property "Revision time" as a date property :
         In your wiki, go to page /Property:Revision_time
