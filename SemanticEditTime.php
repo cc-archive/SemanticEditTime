@@ -24,4 +24,10 @@ $wgExtensionCredits['parserhook'][] = array(
        'description' => 'TODO'
        );
 
+###
+# Store revision Info in the factboxor not
+##
+$setRevisionInfo = true;
+##
+
 ?>
