@@ -1,0 +1,46 @@
+SemanticEditTime
+
+== About ==
+Semantic EditTime is an extension to MediaWiki that works in conjunction with another extension, Semantic MediaWiki, to provide the ability to querry "Revision time" and "Revision user" properties.
+
+
+== Credits ==
+Semantic Tasks was written by Steren Giannini for CreativeCommons.
+
+
+== Installation ==
+ With SemanticMedia Wiki 1.2 : 
+
+(1) Extract the archive to obtain the directory "SemanticEditTime"
+    that contains all relevant files. Copy this directory (or
+    extract/download it) to "[wikipath]/extensions/".
+
+(2) Insert the following line into the file "[wikipath]/LocalSettings.php":
+      require_once( "$IP/extensions/SemanticTasks/SemanticEditTime.php" );
+
+(3) Add the following lines to the file /extensions/SemanticMediaWiki/includes/SMW_Hooks.php at line 37 :
+        global $setIP;
+        if ( file_exists($setIP . "/SET_AddEditTime.php") ) {include($setIP . "/SET_AddEditTime.php");}
+
+(4) Declare the Property "Revision time" as a date property :
+        In your wiki, go to page /Property:Revision_time
+        and add the text [[has type::date]]
+
+
+== Example of use == 
+You can now use revision time and revision user to sort querries : 
+
+{{#ask: [[Category:Task]][[Revision time::+]]
+ | sort=Revision time
+ | order=descending
+ | limit=3
+}}
+
+
+== Known limitations ==
+The factbox will display the Revision Time and Revision User info for every page. Add SemanticMediaWiki has a know bug which displays factboxes in places it is not supposed to be.
+
+You can remove the factbox display :
+    in the file SemanticMediaWiki/includes/SMW_Settings.php
+    comment $smwgShowFactbox = SMW_FACTBOX_NONEMPTY;
+    and uncomment $smwgShowFactbox = SMW_FACTBOX_HIDDEN;
