@@ -16,11 +16,11 @@ Semantic Tasks was written by Steren Giannini for CreativeCommons.
     extract/download it) to "[wikipath]/extensions/".
 
 (2) Insert the following line into the file "[wikipath]/LocalSettings.php":
-      require_once( "$IP/extensions/SemanticTasks/SemanticEditTime.php" );
+      require_once( "$IP/extensions/SemanticEditTime/SemanticEditTime.php" );
 
 (3) Add the following lines to the file /extensions/SemanticMediaWiki/includes/SMW_Hooks.php at line 37 :
-        global $setIP, $setRevisionInfo;
-        if ( $setRevisionInfo ) ) {include($setIP . "/SET_AddEditTime.php");}
+        global $setIP;
+        if ( file_exists($setIP . "/SET_AddEditTime.php") ) { global $setRevisionInfo; if($setRevisionInfo) include($setIP . "/SET_AddEditTime.php"); }
 
 (4) Declare the Property "Revision time" as a date property :
         In your wiki, go to page /Property:Revision_time

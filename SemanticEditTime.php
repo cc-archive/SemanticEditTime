@@ -21,7 +21,7 @@ $wgExtensionCredits['parserhook'][] = array(
        'name' => 'SemanticEditTime',
        'author' =>'Steren Giannini', 
        'url' => 'http://www.creativecommons.org', 
-       'description' => 'TODO'
+       'description' => 'Provide the ability to querry "Revision time" and "Revision user" properties'
        );
 
 ###
